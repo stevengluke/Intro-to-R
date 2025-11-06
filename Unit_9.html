@@ -11,7 +11,7 @@
 
 <meta name="author" content="Steven Luke" />
 
-<meta name="date" content="2025-09-03" />
+<meta name="date" content="2025-11-06" />
 
 <title>Inference IV: Mixed Effects Models</title>
 
@@ -1481,7 +1481,7 @@ border-radius: 0px;
 
 <h1 class="title toc-ignore">Inference IV: Mixed Effects Models</h1>
 <h4 class="author">Steven Luke</h4>
-<h4 class="date">2025-09-03</h4>
+<h4 class="date">2025-11-06</h4>
 
 </div>
 
@@ -1732,14 +1732,14 @@ yourself:</p>
 <li>Is the data nested within <strong>Night</strong>?</li>
 </ul>
 <pre><code>## # A tibble: 6 × 4
-##   Subject  Night Treatment   Sleep_Quality
-##   &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;               &lt;int&gt;
-## 1 Aadila       1 Caffeine               74
-## 2 Aadila       2 No Caffeine            49
-## 3 Dean         2 Caffeine                7
-## 4 Dean         1 No Caffeine            71
-## 5 Imtinaan     1 Caffeine               45
-## 6 Imtinaan     2 No Caffeine            32</code></pre>
+##   Subject Night Treatment   Sleep_Quality
+##   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;               &lt;int&gt;
+## 1 Alexa       1 Caffeine               90
+## 2 Alexa       2 No Caffeine            58
+## 3 Andrew      2 Caffeine               11
+## 4 Andrew      1 No Caffeine            95
+## 5 Andrew      1 Caffeine               45
+## 6 Andrew      2 No Caffeine            75</code></pre>
 </div>
 <p>The data <strong>is</strong> nested within Subject. You can see that
 each Subject provided 2 data points.</p>
@@ -1967,16 +1967,16 @@ not suffer from these limitations.</p>
 what variable(s) would make a good random effect?</li>
 </ol>
 <pre><code>##    Quiz Johnny_Appleseed Paul_Bunyan John_Henry
-## 1     1               61          49         51
-## 2     2               61          52         51
-## 3     3               61          51         49
-## 4     4               58          48         47
-## 5     5               62          49         49
-## 6     6               61          49         49
-## 7     7               62          52         51
-## 8     8               60          52         48
-## 9     9               61          50         49
-## 10   10               60          46         54</code></pre>
+## 1     1               51          49         61
+## 2     2               48          53         61
+## 3     3               52          52         54
+## 4     4               52          48         57
+## 5     5               48          47         63
+## 6     6               50          49         62
+## 7     7               50          53         60
+## 8     8               51          49         63
+## 9     9               47          48         61
+## 10   10               54          55         56</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Look at this data about cars. Is it nested data? How do you
 know?</li>
@@ -2235,8 +2235,7 @@ model ‘did not converge’ or ‘failed to converge’.</p>
 how the parameters - especially the fixed effect - never really settle
 on a good number. When this happens, the model output will give you a
 warning, which will look something like this:</p>
-<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge with max|grad| = 0.244247
-## (tol = 0.002, component 1)</code></pre>
+<pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model failed to converge with max|grad| = 0.244247 (tol = 0.002, component 1)</code></pre>
 <pre><code>## Warning in checkConv(attr(opt, &quot;derivs&quot;), opt$par, ctrl = control$checkConv, : Model is nearly unidentifiable: very large eigenvalue
 ##  - Rescale variables?</code></pre>
 <p>This error means that the model couldn’t settle on one or more
@@ -2759,8 +2758,7 @@ interpreting regression output, because it applies here, too!</p>
 <p>Below is the output of a mixed-effects model. Use it to answer the
 questions below.</p>
 <pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [&#39;lmerModLmerTest&#39;]
-## Formula: IQ ~ scale(Age, scale = FALSE) * scale(BirthMotherIQ, scale = FALSE) +  
-##     scale(AdoptedMotherEducation, scale = FALSE) + (1 + scale(Age,      scale = FALSE) | Child)
+## Formula: IQ ~ scale(Age, scale = FALSE) * scale(BirthMotherIQ, scale = FALSE) +      scale(AdoptedMotherEducation, scale = FALSE) + (1 + scale(Age,      scale = FALSE) | Child)
 ##    Data: AdoptedLong
 ## 
 ## REML criterion at convergence: 1909.4
